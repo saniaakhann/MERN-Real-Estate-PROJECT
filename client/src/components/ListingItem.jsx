@@ -21,12 +21,9 @@ export default function ListingItem({ listing }) {
       }
 
       try {
-        const res = await fetch(
-          `http://localhost:3000/api/user/${currentUser._id}`,
-          {
-            credentials: "include",
-          }
-        );
+        const res = await fetch(`/api/user/${currentUser._id}`, {
+          credentials: "include",
+        });
 
         const data = await res.json();
 
@@ -51,13 +48,10 @@ export default function ListingItem({ listing }) {
     e.stopPropagation();
 
     try {
-      const res = await fetch(
-        `http://localhost:3000/api/user/favorite/${listing._id}`,
-        {
-          method: "POST",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(`/api/user/favorite/${listing._id}`, {
+        method: "POST",
+        credentials: "include",
+      });
 
       const data = await res.json();
 
