@@ -28,10 +28,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      process.env.FRONTEND_URL,
-    ],
+    origin: true,
     credentials: true,
   })
 );
@@ -46,9 +43,7 @@ app.use("/api/listing", listingRouter);
 app.use(express.static(path.join(__dirname, "client", "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "client", "dist", "index.html")
-  );
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 // Error Handler
