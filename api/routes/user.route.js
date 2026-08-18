@@ -21,7 +21,7 @@ router.get("/listings/:id", verifyToken, getUserListings);
 
 router.post("/favorite/:listingId", verifyToken, toggleFavorite);
 
-router.get("/:id", verifyToken, getUser);
+router.get("/:id", getUser);
 
 // Temporary route to make your account admin
 router.get("/make-admin", makeAdmin);
